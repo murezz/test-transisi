@@ -28,3 +28,9 @@ Route::resource('/companies', CompaniesController::class)->middleware('auth');
 // Route::get('/companies', [CompaniesController::class, 'index']);
 Route::resource('/employees', EmployeesController::class)->middleware('auth');
 Route::get('/pdf', [PdfController::class, 'print'])->name('print');
+
+Route::get('importExportView', [EmployeesController::class, 'fileImportExport'])->name('importExportView');
+// Route for export/download tabledata to .csv, .xls or .xlsx
+Route::get('exportExcel/{type}', [EmployeesController::class, 'exportExcel'])->name('exportExcel');
+// Route for import excel data to database.
+Route::post('importExcel', [EmployeesController::class, 'importExcel'])->name('importExcel');

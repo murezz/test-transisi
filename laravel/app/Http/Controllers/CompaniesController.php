@@ -91,25 +91,25 @@ class CompaniesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $attr = $request->validate([
+        $validate = $request->validate([
             'nama' => 'required',
             'email' => 'required|email',
             'website' => 'required',
-            'logo' => 'required|image|mimes:png|max:2000',
+            // 'logo' => 'required|image|mimes:png|max:2000',
         ]);
 
         if ($image = $request->file('logo')) {
             $destinationPath = Storage::putFile('companies', $request->file('logo'));
             // $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath);
-            $attr['logo'] = "$destinationPath";
+            $validate['logo'] = "$destinationPath";
         } else {
-            unset($attr['logo']);
+            unset($validate['logo']);
         }
 
-        Companies::update($attr);
+        Companies::where('id', $id)->update($validate);;
 
-        return back()->with('message', 'Berhasil di update');
+        return redirect()->route('companies.index')->with('message', 'Berhasil di update');
     }
 
     /**

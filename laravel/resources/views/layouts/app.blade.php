@@ -38,12 +38,12 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 
-                        {{-- <li class="nav-item">
-                            <a class="nav-link" href="{{ route('companies') }}">{{ __('Companies') }}</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/companies">{{ __('Companies') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('employees') }}">{{ __('Employees') }}</a>
-                        </li> --}}
+                            <a class="nav-link" href="/employees">{{ __('Employees') }}</a>
+                        </li>
 
                     </ul>
 

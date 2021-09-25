@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\EmployeesExport;
+use App\Imports\EmployeesImport;
 use App\Models\Companies;
 use App\Models\Employees;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\UsersImport;
+use App\Exports\UsersExport;
 
 class EmployeesController extends Controller
 {
@@ -112,5 +117,22 @@ class EmployeesController extends Controller
         $employees->delete();
 
         return redirect()->back()->with('message', 'employees berhasil di hapus');
+    }
+
+
+
+    public function fileImportExport()
+    {
+        return view('file-import');
+    }
+
+    public function importExcel(Request $request)
+    {
+        Excel::import(new EmployeesImport, $request->file('file')->store('temp'));
+    }
+
+    public function exportExcel()
+    {
+        return Excel::download(new EmployeesExport, 'empolyees.xlsx');
     }
 }
