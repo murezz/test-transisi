@@ -6,11 +6,11 @@ $array_nilai = array();
 foreach ($split_nilai as $n) {
     array_push($array_nilai, (int)$n);
 }
-// nilai-rata
+// nilai rata - rata
 $average = array_sum($array_nilai) / count($array_nilai);
 echo "Nilai rata-rata adalah = " . $average . "<br>";
 
-// mencari 7 nilai tertinggi
+// 7 nilai tertinggi
 rsort($array_nilai);
 $max = array_slice($array_nilai, 0, 7);
 echo "7 Nilai tertinggi adalah = ";
@@ -19,7 +19,7 @@ foreach ($max as $mx) {
 }
 echo "<br>";
 
-// mencari 7 nilai terendah
+// 7 nilai terendah
 sort($array_nilai);
 $min = array_slice($array_nilai, 0, 7);
 echo "7 nilai terendah adalah = ";

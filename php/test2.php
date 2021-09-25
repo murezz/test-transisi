@@ -5,7 +5,7 @@
 
     <form action="" method="post">
         Maskkan nama <input type="text" name="input"><br>
-        <input type="submit">
+        <button type="submit">Submit</button>
     </form>
 
 </body>

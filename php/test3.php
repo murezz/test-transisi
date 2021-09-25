@@ -3,7 +3,7 @@
 <body>
     <form action="" method="post">
         Maskkan nama <input type="text" name="input"><br>
-        <input type="submit">
+        <button type="submit">Submit</button>
     </form>
 </body>
 
@@ -63,7 +63,3 @@ function generateUBT($input)
 $input = $_POST['input'];
 
 echo generateUBT($input);
-  
-	// Unigram : Jakarta, adalah, ibukota, negara, Republik, Indonesia
-	// Bigram : Jakarta adalah, ibukota negara, Republik Indonesia
-	// Trigram : Jakarta adalah ibukota, negara Republik Indonesia
